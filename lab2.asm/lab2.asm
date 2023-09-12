@@ -25,6 +25,7 @@ input_str proc
     mov dx, 0Ah
     int 21h
 
+    ; needs to replace carriege return to $
     xor ax, ax
     mov bx, [bp + 4]
     mov al, [bx + 1]
