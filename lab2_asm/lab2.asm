@@ -179,7 +179,7 @@ index_of_last_word proc
     mov bp, sp
 
     mov si, bx
-    dec si ; index of last word
+    dec si ; last index of last word
 
     mov bx, [bp + 4]
     mov ax, [bx + si]
