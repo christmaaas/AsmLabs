@@ -183,14 +183,14 @@ index_of_last_word proc
     dec si
     mov ax, [bx + si]
 
-    zzloop:
+    last_word_loop:
         call if_letter
         cmp al, 1
-        jne end_zzloop
+        jne end_last_word_loop
         dec si
         mov ax, [bx + si]
-        jmp zzloop
-    end_zzloop:
+        jmp last_word_loop
+    end_last_word_loop:
         inc si
         pop bp
         ret
