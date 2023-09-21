@@ -7,7 +7,8 @@
     mes2 db "Enter left limit: $"
     mes3 db "Enter right limit: $"
     mes4 db "Count of elements: $"
-    mul_for_convert db 0
+    mes5 db 0Ah, 0Dh, "-----Enter 30 elements of array-----", 0Ah, 0Dh, '$'
+    mul_for_convert db 10 ; needs to mul intermediate res
     left_limit db 0
     right_limit db 0
 
@@ -65,7 +66,6 @@ input_limit endp
 fill_array proc
     mov si, offset array
     mov cx, 30 ; counter of loop
-    mov mul_for_convert, 10 ; needs to mul intermediate res
 
     fill_array_loop:
         mov dx, offset mes1
@@ -138,35 +138,21 @@ count_elements_in_limits proc
     ret
 count_elements_in_limits endp
 
-convert_num proc
-    push bp
-    mov bp, sp
-
-    mov ax, [bp + 4]
-    mov bx, 10
-    div bl
-
-    mov bx, [bp + 4]
-    sub bx, [bp + 6]
-
-    add ax, '0'
-    add bx, '0'
-
-    mov ah, 02h
-    mov dx, ax
-    int 21h
-
-    mov ah, 02h
-    mov dx, bx
-    int 21h
-
-    pop bp
-    ret 4
-convert_num endp
-
 start:
     mov ax, @data
     mov ds, ax
+
+    mov dx, offset mes5
+    push dx
+    call output_str
+
+    mov ah, 02h
+    mov dx, 0Ah
+    int 21h
+
+    mov ah, 02h
+    mov dx, 0Dh
+    int 21h
 
     call fill_array
 
@@ -192,38 +178,34 @@ start:
     push dx
     call output_str
 
-    mov ax, di
-    cmp ax, 30
-    jge more_than_thirty
-    cmp ax, 20
-    jge more_than_twenty
-    cmp ax, 10
-    jge more_than_ten
-    add ax, '0'
-    jmp less_the_ten
+    cmp di, 0
+    je end_prog
 
-    more_than_thirty:
-        mov bx, 30
-        push bx
-        push ax
-        call convert_num
-        jmp output_result
-    more_than_twenty:
-        mov bx, 20
-        push bx
-        push ax
-        call convert_num
-        jmp output_result
-    more_than_ten:
-        mov bx, 10
-        push bx
-        push ax
-        call convert_num
-        jmp output_result
-    less_the_ten:
+    mov ax, di
+    mov bx, 10
+    mov di, 0
+
+coonvert_loop:
+    cmp al, 0
+    je end_coonvert_loop
+    continue:
+        div bl
+        mov dl, ah
+        xor ah, ah
+        push dx
+        inc di
+        jmp coonvert_loop
+
+end_coonvert_loop:
+    mov cx, di
+    pop_loop:
+        pop ax
         mov ah, 02h
         mov dx, ax
+        add dx, '0'
         int 21h
+        loop pop_loop
+
 output_result:
     mov ah, 02h
     mov dx, 0Ah
@@ -235,6 +217,13 @@ output_result:
 
     mov ax, 4C00h
     int 21h
+
+end_prog:
+        mov ah, 02h
+        mov dx, di
+        add dx, '0'
+        int 21h
+        jmp output_result
 
 .STACK 100h
 
