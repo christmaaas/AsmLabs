@@ -14,9 +14,30 @@ Stack::Stack(int capacity)
 	cur_size = 0;
 }
 
+Stack::Stack(const Stack& stack)
+{
+	this->capacity = stack.capacity;
+	this->cur_size = stack.cur_size;
+	this->data = new int[capacity];
+
+	for (int i = 0; i < cur_size; i++)
+		data[i] = stack.data[i];
+}
+
 Stack::~Stack()
 {
 	delete[] data;
+}
+
+void Stack::operator+(const int number)
+{
+	push(number);
+}
+
+void Stack::operator-(const int number)
+{
+	for (int i = 0; i < number; i++)
+		std::cout << std::endl << "Pop value: " << pop() << std::endl;
 }
 
 void Stack::push(int value)

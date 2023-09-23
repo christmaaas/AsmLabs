@@ -1,13 +1,13 @@
 #pragma once
 #include <iostream>
 
-#define MENU_ERROR -10
-
 enum Menu
 {
 	PUSH = 1,
 	POP,
 	PRINT,
+	ADD,
+	SUB,
 	EXIT
 };
 

@@ -30,6 +30,8 @@ void print_menu()
 		<< "1 - Push in stack" << std::endl
 		<< "2 - Pop from stack" << std::endl
 		<< "3 - Print stack" << std::endl
-		<< "4 - Exit" << std::endl
+		<< "4 - Add in stack" << std::endl
+		<< "5 - Sub from stack" << std::endl
+		<< "6 - Exit" << std::endl
 		<< "Your choose: ";
 }

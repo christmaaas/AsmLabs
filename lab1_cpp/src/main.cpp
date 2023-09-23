@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "stack.h"
+#include "string.h"
 #include "menu.h"
 
 int main()
@@ -15,41 +16,77 @@ int main()
 	{
 		print_menu();
 
-		choose = input_check(1, 4);
+		choose = input_check(1, 6);
 
 		switch (choose)
 		{
-		case PUSH:
-			std::cout << std::endl << "Enter value to push: ";
+			case PUSH:
+			{
+				std::cout << std::endl << "Enter value to push: ";
 
-			value = input_check(std::numeric_limits<int>::min(), std::numeric_limits<int>::max());
+				value = input_check(std::numeric_limits<int>::min(), std::numeric_limits<int>::max());
 
-			try
-			{
-				stack.push(value);
+				try
+				{
+					stack.push(value);
+				}
+				catch (std::string error_message)
+				{
+					std::cout << error_message << std::endl;
+				}
+				break;
 			}
-			catch (std::string error_message)
+			case POP:
 			{
-				std::cout << error_message << std::endl;
+				try
+				{
+					std::cout << std::endl << "Pop value: " << stack.pop() << std::endl;
+				}
+				catch (std::string error_message)
+				{
+					std::cout << error_message << std::endl;
+				}
+				break;
 			}
-			break;
-		case POP:
-			try
+			case PRINT:
 			{
-				std::cout << std::endl << "Pop value: " << stack.pop() << std::endl;
+				stack.print();
+				break;
 			}
-			catch (std::string error_message)
+			case ADD:
 			{
-				std::cout << error_message << std::endl;
+				std::cout << std::endl << "Enter value to push: ";
+
+				value = input_check(std::numeric_limits<int>::min(), std::numeric_limits<int>::max());
+
+				stack + value;
+
+				break;
 			}
-			break;
-		case PRINT:
-			stack.print();
-			break;
-		case EXIT:
-			break;
-		default:
-			exit(MENU_ERROR);
+			case SUB:
+			{
+				std::cout << std::endl << "Enter amount for sub: ";
+
+				value = input_check(std::numeric_limits<int>::min(), std::numeric_limits<int>::max());
+
+				if (value > stack.size())
+				{
+					std::cout << std::endl << "Enter valid value" << std::endl;
+					break;
+				}
+
+				stack - value;
+
+				break;
+			}
+			case EXIT:
+			{
+				break;
+			}
+			default:
+			{
+				return 0;
+			}
 		}
 	} while (choose != EXIT);
 
