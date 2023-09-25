@@ -12,6 +12,16 @@ private:
 
 	int* data;
 public:
+	enum Stack_menu
+	{
+		PUSH = 1,
+		POP,
+		PRINT,
+		ADD,
+		SUB,
+		EXIT
+	};
+
 	Stack();
 	Stack(int capacity);
 	Stack(const Stack& stack);
