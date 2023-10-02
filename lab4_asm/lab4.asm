@@ -517,10 +517,4 @@ game_cycle:
 
     mov ax, 4C00h
     int 21h
-end start
-
-    
-
-
-
-
+end start    
