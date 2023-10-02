@@ -375,7 +375,6 @@ game_over:
     mov ax, 4C00h
     int 21h
 
-
 start:
     mov ax, @data
     mov ds, ax
