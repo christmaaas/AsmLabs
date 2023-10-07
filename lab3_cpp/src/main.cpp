@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "union.h"
+#include "teacher_union_member.h"
 
 int main()
 {
