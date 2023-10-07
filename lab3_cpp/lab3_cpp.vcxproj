@@ -129,12 +129,14 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\man.cpp" />
+    <ClCompile Include="src\menu.cpp" />
     <ClCompile Include="src\teacher.cpp" />
     <ClCompile Include="src\teacher_union_member.cpp" />
     <ClCompile Include="src\union_member.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\man.h" />
+    <ClInclude Include="src\menu.h" />
     <ClInclude Include="src\teacher.h" />
     <ClInclude Include="src\teacher_union_member.h" />
     <ClInclude Include="src\union_member.h" />

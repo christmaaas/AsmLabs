@@ -4,7 +4,7 @@
 #include "teacher.h"
 #include "union_member.h"
 
-#define MAX_SOCIAL_ACTIVITY_LENGTH 10
+#define MAX_SOCIAL_ACTIVITY_LENGTH 30
 
 class TeacherUnionMember : public Teacher, public UnionMember
 {
@@ -13,6 +13,8 @@ private:
 public:
 	TeacherUnionMember();
 	TeacherUnionMember(char* name, char* surname, char* taught_course, char* position, char* social_activity);
+
+	void organize_meeting() const;
 
 	void set_social_activity(char* social_activity);
 

@@ -5,6 +5,11 @@ UnionMember::UnionMember() : Man()
 	this->position[0] = '\0';
 }
 
+UnionMember::UnionMember(char* position)
+{
+	set_position(position);
+}
+
 UnionMember::UnionMember(char* name, char* surname, char* position) : Man(name, surname)
 {
 	set_position(position);
@@ -17,10 +22,15 @@ void UnionMember::set_position(char* position)
 
 	for (int i = 0; i < strlen(position); i++)
 		this->position[i] = position[i];
-	this->position[strlen(this->position) + 1] = '\0';
+	this->position[strlen(position)] = '\0';
 }
 
 const char* UnionMember::get_postion() const
 {
 	return this->position;
+}
+
+void UnionMember::participate_in_union() const
+{
+	std::cout << Man::get_name() << " holds the position of " << position << std::endl;
 }

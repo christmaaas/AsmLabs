@@ -9,7 +9,7 @@ Man::Man()
 Man::Man(char* name, char* surname)
 {
 	set_name(name);
-	set_name(surname);
+	set_surname(surname);
 }
 
 void Man::set_name(char* name)
@@ -19,7 +19,7 @@ void Man::set_name(char* name)
 
 	for (int i = 0; i < strlen(name); i++)
 		this->name[i] = name[i];
-	this->name[strlen(this->name) + 1] = '\0';
+	this->name[strlen(name)] = '\0';
 }
 
 void Man::set_surname(char* surname)
@@ -29,7 +29,7 @@ void Man::set_surname(char* surname)
 
 	for (int i = 0; i < strlen(surname); i++)
 		this->surname[i] = surname[i];
-	this->surname[strlen(this->surname) + 1] = '\0';
+	this->surname[strlen(surname)] = '\0';
 }
 
 const char* Man::get_name() const
@@ -40,4 +40,9 @@ const char* Man::get_name() const
 const char* Man::get_surname() const
 {
 	return this->surname;
+}
+
+void Man::speak() const
+{
+	std::cout << name << " says: Hello!" << std::endl;
 }

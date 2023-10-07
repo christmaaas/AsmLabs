@@ -13,6 +13,8 @@ public:
 	Man();
 	Man(char* name, char* surname);
 
+	void speak() const;
+
 	void set_name(char* name);
 	void set_surname(char* surname);
 
