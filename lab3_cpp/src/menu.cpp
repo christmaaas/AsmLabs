@@ -59,27 +59,27 @@ void functionality_assessment()
 	
 	char name[MAX_NAME_LENGTH];
 	std::cout << "Enter name";
-	input_string_check(name, 9);
+	input_string_check(name, MAX_NAME_LENGTH - 1);
 	unit.set_name(name);
 
 	char surname[MAX_SURNAME_LENGTH];
 	std::cout << "Enter surname";
-	input_string_check(surname, 19);
+	input_string_check(surname, MAX_SURNAME_LENGTH - 1);
 	unit.set_surname(surname);
 
 	char taught_course[MAX_TAUGHT_COURSE_LENGTH];
 	std::cout << "Enter taught course";
-	input_string_check(taught_course, 9);
+	input_string_check(taught_course, MAX_TAUGHT_COURSE_LENGTH - 1);
 	unit.set_taught_course(taught_course);
 
 	char position[MAX_POSITION_LENGTH];
 	std::cout << "Enter position";
-	input_string_check(position, 19);
+	input_string_check(position, MAX_POSITION_LENGTH - 1);
 	unit.set_position(position);
 
 	char social_activity[MAX_SOCIAL_ACTIVITY_LENGTH];
 	std::cout << "Enter social activity";
-	input_string_check(social_activity, 29);
+	input_string_check(social_activity, MAX_SOCIAL_ACTIVITY_LENGTH - 1);
 	unit.set_social_activity(social_activity);
 
 	int choose = 0;
