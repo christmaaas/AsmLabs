@@ -3,7 +3,7 @@
 
 #include "teacher_union_member.h"
 
-#define MENU_EXIT_ERROR -10
+#define MENU_ERROR -10
 
 enum Menu
 {

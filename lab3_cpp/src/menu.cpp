@@ -60,27 +60,36 @@ void functionality_assessment()
 	char name[MAX_NAME_LENGTH];
 	std::cout << "Enter name";
 	input_string_check(name, MAX_NAME_LENGTH - 1);
-	unit.set_name(name);
 
 	char surname[MAX_SURNAME_LENGTH];
 	std::cout << "Enter surname";
 	input_string_check(surname, MAX_SURNAME_LENGTH - 1);
-	unit.set_surname(surname);
 
 	char taught_course[MAX_TAUGHT_COURSE_LENGTH];
 	std::cout << "Enter taught course";
 	input_string_check(taught_course, MAX_TAUGHT_COURSE_LENGTH - 1);
-	unit.set_taught_course(taught_course);
 
 	char position[MAX_POSITION_LENGTH];
 	std::cout << "Enter position";
 	input_string_check(position, MAX_POSITION_LENGTH - 1);
-	unit.set_position(position);
 
 	char social_activity[MAX_SOCIAL_ACTIVITY_LENGTH];
 	std::cout << "Enter social activity";
 	input_string_check(social_activity, MAX_SOCIAL_ACTIVITY_LENGTH - 1);
-	unit.set_social_activity(social_activity);
+
+	try
+	{
+		unit.set_name(name);
+		unit.set_surname(surname);
+		unit.set_taught_course(taught_course);
+		unit.set_position(position);
+		unit.set_social_activity(social_activity);
+	}
+	catch (std::string error_message)
+	{
+		std::cout << std::endl << error_message << std::endl;
+		exit(MENU_ERROR);
+	}
 
 	int choose = 0;
 
@@ -120,7 +129,7 @@ void functionality_assessment()
 			}
 			default:
 			{
-				exit(MENU_EXIT_ERROR);
+				exit(MENU_ERROR);
 			}
 		}
 	} while (choose != EXIT);
