@@ -15,9 +15,9 @@ Teacher::Teacher(char* name, char* surname, char* taught_course) : Man(name, sur
 	set_taught_course(taught_course);
 }
 
-void Teacher::set_taught_course(char* taught_course)
+void Teacher::set_taught_course(const char* taught_course)
 {
-	if (strlen(taught_course) > 9)
+	if (strlen(taught_course) > MAX_TAUGHT_COURSE_LENGTH - 1)
 		throw std::string("Length is higher than specified");
 
 	for (int i = 0; i < strlen(taught_course); i++)

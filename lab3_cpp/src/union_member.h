@@ -16,7 +16,7 @@ public:
 
 	void participate_in_union() const;
 
-	void set_position(char* position);
+	void set_position(const char* position);
 
 	const char* get_postion() const;
 };

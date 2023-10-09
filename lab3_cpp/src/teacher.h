@@ -16,7 +16,7 @@ public:
 
 	void teach() const;
 
-	void set_taught_course(char* taught_course);
+	void set_taught_course(const char* taught_course);
 
 	const char* get_taught_course() const;
 };

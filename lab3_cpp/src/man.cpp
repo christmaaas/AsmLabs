@@ -12,9 +12,9 @@ Man::Man(char* name, char* surname)
 	set_surname(surname);
 }
 
-void Man::set_name(char* name)
+void Man::set_name(const char* name)
 {
-	if (strlen(name) > 9)
+	if (strlen(name) > MAX_NAME_LENGTH - 1)
 		throw std::string("Length is higher than specified");
 
 	for (int i = 0; i < strlen(name); i++)
@@ -22,9 +22,9 @@ void Man::set_name(char* name)
 	this->name[strlen(name)] = '\0';
 }
 
-void Man::set_surname(char* surname)
+void Man::set_surname(const char* surname)
 {
-	if (strlen(surname) > 19)
+	if (strlen(surname) > MAX_SURNAME_LENGTH - 1)
 		throw std::string("Length is higher than specified");
 
 	for (int i = 0; i < strlen(surname); i++)

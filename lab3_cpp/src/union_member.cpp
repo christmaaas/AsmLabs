@@ -15,9 +15,9 @@ UnionMember::UnionMember(char* name, char* surname, char* position) : Man(name, 
 	set_position(position);
 }
 
-void UnionMember::set_position(char* position)
+void UnionMember::set_position(const char* position)
 {
-	if (strlen(position) > 9)
+	if (strlen(position) > MAX_POSITION_LENGTH - 1)
 		throw std::string("Length is higher than specified");
 
 	for (int i = 0; i < strlen(position); i++)

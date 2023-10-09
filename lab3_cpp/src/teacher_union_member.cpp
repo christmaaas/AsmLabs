@@ -10,9 +10,9 @@ TeacherUnionMember::TeacherUnionMember(char* name, char* surname, char* taught_c
 	set_social_activity(social_activity);
 }
 
-void TeacherUnionMember::set_social_activity(char* social_activity)
+void TeacherUnionMember::set_social_activity(const char* social_activity)
 {
-	if (strlen(social_activity) > 29)
+	if (strlen(social_activity) > MAX_SOCIAL_ACTIVITY_LENGTH - 1)
 		throw std::string("Length is higher than specified");
 
 	for (int i = 0; i < strlen(social_activity); i++)

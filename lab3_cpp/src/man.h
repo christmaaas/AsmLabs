@@ -15,8 +15,8 @@ public:
 
 	void speak() const;
 
-	void set_name(char* name);
-	void set_surname(char* surname);
+	void set_name(const char* name);
+	void set_surname(const char* surname);
 
 	const char* get_name() const;
 	const char* get_surname() const;

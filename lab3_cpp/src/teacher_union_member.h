@@ -16,7 +16,7 @@ public:
 
 	void organize_meeting() const;
 
-	void set_social_activity(char* social_activity);
+	void set_social_activity(const char* social_activity);
 
 	const char* get_social_activity() const;
 };
