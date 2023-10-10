@@ -7,7 +7,7 @@ sum_of_elements proc
 	mov ebp, esp
 
 	array	equ [ebp + 8]
-	sum		equ [ebp + 12]
+	sum	equ [ebp + 12]
 
 	mov ebx, array
 	mov edx, sum
