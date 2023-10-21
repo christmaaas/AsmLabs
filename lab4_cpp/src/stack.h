@@ -30,7 +30,7 @@ public:
 
 	void push(const T data);
 	const T pop();
-	const T peek();
+	const T peek() const;
 	bool empty() const;
 	const int size() const;
 	void print() const;
@@ -109,7 +109,7 @@ const T Stack<T>::pop()
 }
 
 template<typename T>
-const T Stack<T>::peek()
+const T Stack<T>::peek() const
 {
 	if (empty())
 		throw std::string("Stack is empty!");
