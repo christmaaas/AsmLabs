@@ -122,7 +122,7 @@ void Stack<T>::print() const
 {
 	Node<T>* temp = _head;
 
-	if (_size == 0)
+	if (empty())
 		std::cout << std::endl << "No elements to print" << std::endl;
 	else
 	{
