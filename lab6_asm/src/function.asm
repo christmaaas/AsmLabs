@@ -22,7 +22,7 @@ sum_loop:
 	fstp dword ptr [edx]
 	add ebx, 4
 	loop sum_loop
-
+	
 	pop ebp
 	ret
 sum_of_elements endp
